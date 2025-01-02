@@ -4,6 +4,11 @@
     <button mat-icon-button (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
+    <span style="flex: 1 1 auto;"></span>
+    <label style="font-size: 14px; margin-right: 20px;">{{correoUsuario}} | {{rolUsuario}}</label>
+    <button mat-icon-button (click)="cerrarSesion()">
+        <mat-icon>logout</mat-icon>
+    </button>
   </mat-toolbar-row>
 </mat-toolbar>
 
@@ -11,7 +16,7 @@
   <mat-sidenav #sidenav opened="true" mode="side" style="width: 210px">
     <mat-nav-list>
 
-      <mat-list-item routerLink="/pages/dashboard">
+      <!-- <mat-list-item routerLink="/pages/dashboard">
         <mat-icon matListItemIcon>dashboard</mat-icon>
         <div matListItemTitle>DashBoard</div>
       </mat-list-item>
@@ -34,11 +39,11 @@
       <mat-list-item routerLink="/pages/historial_venta">
         <mat-icon matListItemIcon>edit_mode</mat-icon>
         <div matListItemTitle>Historial Ventas</div>
-      </mat-list-item>
+      </mat-list-item> -->
 
-      <mat-list-item routerLink="/pages/reportes">
-        <mat-icon matListItemIcon>receipt</mat-icon>
-        <div matListItemTitle>Reportes</div>
+      <mat-list-item *ngFor="let menu of listaMenus" [routerLink]="menu.url">
+        <mat-icon matListItemIcon>{{menu.icono}}</mat-icon>
+        <div matListItemTitle>{{menu.nombre}}</div>
       </mat-list-item>
 
     </mat-nav-list>
