@@ -58,7 +58,7 @@ export const MY_DATA_FORMATS = {
   templateUrl: './reporte.component.html',
   styleUrl: './reporte.component.scss',
 })
-export class ReporteComponent {
+export class ReporteComponent implements AfterViewInit {
   formularioFiltro: FormGroup;
   listaVentasReporte: Reporte[] = [];
   columnasTabla: string[] = [
